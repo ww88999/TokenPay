@@ -14,11 +14,11 @@
 ## Project Description
 - `TokenPay` is a privately deployed `blockchain` payment solution written in `C# language`.     
 - The project does not depend on any external resources, no need to deploy a separate `database`, uses lightweight `sqlite`, and does not require `redis`.
-- Any project can be docked to easily implement `TRX`, `USDT-TRC20` and `ETH-system native coins` as well as `ETH-system ERC20 tokens`, theoretically supporting `all ETH-system blockchain` collections! 😊 😊 😊 😊
+- Any project can be docked to easily implement `TRX`, `USDT-TRC20` and `ETH-system native coins` as well as `ETH-system ERC20 tokens`, theoretically supporting `all ETH-system blockchain` collections! 馃槉 馃槉 馃槉 馃槉
 - `TokenPay` is licensed under the terms of the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) license.
 
 ## Project Features
-- `C# language` cross-platform implementation, support x86 and arm chip architecture win/linux/mac devices😁
+- `C# language` cross-platform implementation, support x86 and arm chip architecture win/linux/mac devices馃榿
 - Support one collection address per order, or one collection address per user, solving the pain point of single address collection, which easily leads to wrong order completion.
 - No additional environment configuration, just run a compiled binary file to use
 
@@ -30,10 +30,7 @@ TokenPay
     └── src ---> (Core)
 ```
 ## Available plug-ins
-- [dujiaoka](Plugs/dujiaoka/) | [dujiaoka](https://github.com/assimon/dujiaoka) ![Github stars](https://img.shields.io/github/stars/assimon/dujiaoka?style=social)
-- [v2board](Plugs/v2board/) | [v2board](https://github.com/v2board/v2board) ![Github stars](https://img.shields.io/github/stars/v2board/v2board?style=social)
-- [card-system](Plugs/card-system/) | [card-system](https://github.com/Tai7sy/card-system) ![Github stars](https://img.shields.io/github/stars/Tai7sy/card-system?style=social)
-- [epay](Plugs/epay/) | [epay](https://pay.cccyun.cc)
+- [acgfakaV3](Plugs/acgfaka/) | [acgfaka]([https://[pay.cccyun.cc](https://github.com/lizhipay/acg-faka)])
 
 ## System Api(Only Chinese)
 - `TokenPay`Api Docs👉🏻[TokenPay Api Docs](Wiki/docs.md)
@@ -63,12 +60,13 @@ Simple principle.
 ## Donate
 If this project has helped you, I hope you can buy me a cup of coffee☕️
 ```
-USDT-TRC20: TKGTx4pCKiKQbk8evXHTborfZn754TGViP
+USDT-TRC20: TS7nSoQ2Lt66GAYGNgj3MVH52Yu9twLEKY
 ```
 <img src="Wiki/imgs/usdt_thanks_en.jpg" width = "400" alt="usdt扫码打赏"/>
 
 ## Thanks
 Thanks to the following open source projects.
+[TokenPay] (https://github.com/LightCountry/TokenPay) ![Github stars](https://img.shields.io/github/stars/TokenPay/TokenPay?style=social)
 
 [Serilog](https://github.com/serilog/serilog) ![Github stars](https://img.shields.io/github/stars/serilog/serilog?style=social)
 

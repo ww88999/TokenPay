@@ -1,0 +1,2 @@
+将MyTokenPay拷贝到app/Plugin目录下即可
+其他按照tokenpay网站说明配置服务端

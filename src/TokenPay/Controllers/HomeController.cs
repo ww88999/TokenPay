@@ -124,6 +124,49 @@ namespace TokenPay.Controllers
         }
         [HttpGet]
         [ApiExplorerSettings(IgnoreApi = false)]
+        public async Task<IActionResult> Query(Guid Id, string Signature, long Timestamp)
+        {
+            // 验证时间戳
+            if (!ValidateTimestamp(Timestamp))
+            {
+                return Json(new ReturnData
+                {
+                    Message = "请求已过期或时间戳无效！"
+                });
+            }
+
+            if (_env.IsProduction())
+            {
+                if (!VerifySignature(new
+                {
+                    Id,
+                    Signature
+                }))
+                {
+                    return Json(new ReturnData
+                    {
+                        Message = "签名验证失败！"
+                    });
+                }
+            }
+            var order = await _repository.Where(x => x.Id == Id).FirstAsync();
+            if (order == null)
+            {
+                return Json(new ReturnData
+                {
+                    Message = "订单不存在！"
+                });
+            }
+            return Json(new ReturnData<TokenOrders>
+            {
+                Success = true,
+                Message = "订单信息获取成功！",
+                Data = order,
+            });
+        }
+
+        [HttpGet]
+        [ApiExplorerSettings(IgnoreApi = false)]
         public async Task<IActionResult> Query(Guid Id, string Signature)
         {
             if (_env.IsProduction())
@@ -189,6 +232,18 @@ namespace TokenPay.Controllers
             }
             return false;
         }
+        private bool ValidateTimestamp(long timestamp)
+        {
+            var currentTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            var maxTimeDifference = 300; // 允许的最大时间差（单位：秒），例如 5 分钟
+
+            if (Math.Abs(currentTimestamp - timestamp) > maxTimeDifference)
+            {
+                return false; // 时间戳无效
+            }
+            return true; // 时间戳有效
+        }
+
         /// <summary>
         /// 创建订单
         /// </summary>
@@ -210,6 +265,16 @@ namespace TokenPay.Controllers
                     Message = messages
                 });
             }
+
+            // 验证时间戳
+            if (!ValidateTimestamp(model.Timestamp))
+            {
+                return Json(new ReturnData
+                {
+                    Message = "请求已过期或时间戳无效！"
+                });
+            }
+
             if (_env.IsProduction())
             {
                 if (!VerifySignature(model))

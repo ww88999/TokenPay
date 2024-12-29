@@ -1,0 +1,2 @@
+拷贝TokenPay到app/Pay目录下即可
+其他按照tokenpay网站说明配置服务端

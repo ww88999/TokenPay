@@ -46,5 +46,9 @@ namespace TokenPay.Models
         /// 参数签名
         /// </summary>
         public string? Signature { get; set; }
+        /// <summary>
+        /// 时间戳
+        /// </summary>
+        public long Timestamp { get; set; }
     }
 }
